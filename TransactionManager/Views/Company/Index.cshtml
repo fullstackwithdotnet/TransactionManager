@@ -1,0 +1,51 @@
+﻿@model IEnumerable<TransactionManager.Models.CompanyModel>
+
+@{
+    ViewData["Title"] = "Index";
+
+
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Company List</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.CompanyName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CompanyAddress)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Ticker)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    <a asp-action="Index" asp-controller="Transaction" asp-route-companyId="@item.CompanyId">@item.CompanyName</a>
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CompanyAddress)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Ticker)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.CompanyId">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.CompanyId">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.CompanyId">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

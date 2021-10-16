@@ -1,0 +1,42 @@
+﻿@model TransactionManager.Models.TransactionRecordModel
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Transaction Details</h1>
+
+<div>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Quantity)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Quantity)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.SharePrice)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.SharePrice)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Company)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Company.CompanyId)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.TransactionType)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.TransactionType.TransactionTypeId)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.TransactionRecordId">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>
